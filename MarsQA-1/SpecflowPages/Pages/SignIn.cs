@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace MarsQA_1.Pages
 {
-    public static class SignIn
+    public class SignIn
     {
         private static IWebElement SignInBtn =>  Driver.driver.FindElement(By.XPath("//A[@class='item'][text()='Sign In']"));
         private static IWebElement Email => Driver.driver.FindElement(By.XPath("(//INPUT[@type='text'])[2]"));
@@ -18,7 +18,7 @@ namespace MarsQA_1.Pages
             Password.SendKeys(ExcelLibHelper.ReadData(2, "password"));
             LoginBtn.Click();
         }
-        public static void Login()
+        public void Login()
         {
             Driver.NavigateUrl();
 
