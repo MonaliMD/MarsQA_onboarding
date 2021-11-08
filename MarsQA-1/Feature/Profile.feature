@@ -6,9 +6,11 @@
 @mytag
 Scenario: Test 01 Update my First Name and Last Name Successfully
 	Given I am in my Profile page
-	When Seller enter First Name as "Ann" and Last Name as "Johns"
+	When Seller enter '<First Name>' and '<Last Name>' 
 	Then Name sold be displayed ad "Ann Johns"
-
+Examples: 
+	| First Name | Last Name |
+	| Ann | Johns |
 #@nameUpdate
 #Scenario: Test 02 Error should be pop up when frist name not entered
 #	Given I am in my Profile page

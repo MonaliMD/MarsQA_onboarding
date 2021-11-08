@@ -1,16 +1,19 @@
 ﻿using MarsQA_1.Helpers;
 using MarsQA_1.Pages;
+using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
+using Specflow_task1.SpecflowPages.Pages;
 using System;
 using TechTalk.SpecFlow;
 
 namespace MarsQA_1.Feature
 {
+    
     [Binding]
     public class ProfileSteps : Driver
     {
-        
-        //SignIn signInObj = new SignIn();
+
+        Profile_page profileObj = new Profile_page();
 
         [Given(@"I am in my Profile page")]
         public void GivenIAmInMyProfilePage()
@@ -18,16 +21,18 @@ namespace MarsQA_1.Feature
             SignIn.SigninStep();
         }
 
-        [When(@"Seller enter First Name as ""(.*)"" and Last Name as ""(.*)""")]
-        public void WhenSellerEnterFirstNameAsAndLastNameAs(string p0, string p1)
+        [When(@"Seller enter '(.*)' and '(.*)'")]
+        public void WhenSellerEnterAnd(string p0, string p1)
         {
-            ScenarioContext.Current.Pending();
+            profileObj.updateName(driver ,p0, p1);
         }
+
 
         [Then(@"Name sold be displayed ad ""(.*)""")]
         public void ThenNameSoldBeDisplayedAd(string p0)
         {
-            ScenarioContext.Current.Pending();
+            string newProfileName = profileObj.getProfileName(driver);
+            Assert.That(newProfileName == "Ann Johns", "Login failed.");
         }
     }
 }

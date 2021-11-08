@@ -77,12 +77,17 @@ namespace MarsQA_1.Feature
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Test 01 Update my First Name and Last Name Successfully")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void Test01UpdateMyFirstNameAndLastNameSuccessfully()
+        [NUnit.Framework.TestCaseAttribute("Ann", "Johns", null)]
+        public virtual void Test01UpdateMyFirstNameAndLastNameSuccessfully(string firstName, string lastName, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "mytag"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test 01 Update my First Name and Last Name Successfully", null, new string[] {
-                        "mytag"});
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test 01 Update my First Name and Last Name Successfully", null, @__tags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -107,7 +112,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("I am in my Profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
- testRunner.When("Seller enter First Name as \"Ann\" and Last Name as \"Johns\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("Seller enter \'{0}\' and \'{1}\'", firstName, lastName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
  testRunner.Then("Name sold be displayed ad \"Ann Johns\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
