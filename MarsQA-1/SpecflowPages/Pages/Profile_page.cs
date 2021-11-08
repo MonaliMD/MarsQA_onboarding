@@ -9,14 +9,8 @@ namespace Specflow_task1.SpecflowPages.Pages
 {
     class Profile_page
     {
-        //public void selectProfilePage(IWebDriver driver)
-        //{
-        //    Thread.Sleep(2000);
-        //    IWebElement profileTab = driver.FindElement(By.XPath("//*[@id='account - profile - section']/div/section[1]/div/a[2]"));
-        //    profileTab.Click();
-        //}
-
-        public void updateName(IWebDriver driver,string p0, string p1)
+        
+        public void updateName(IWebDriver driver,string firstN, string lastN)
         {
             Thread.Sleep(2000);
 
@@ -26,11 +20,11 @@ namespace Specflow_task1.SpecflowPages.Pages
 
             IWebElement firstName = driver.FindElement(By.Name("firstName"));
             firstName.Clear();
-            firstName.SendKeys(p0);
+            firstName.SendKeys(firstN);
 
             IWebElement lastName = driver.FindElement(By.Name("lastName"));
             lastName.Clear();
-            lastName.SendKeys(p1);
+            lastName.SendKeys(lastN);
 
             IWebElement saveButton = driver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[2]/div/div[2]/button"));
             saveButton.Click();
@@ -42,6 +36,39 @@ namespace Specflow_task1.SpecflowPages.Pages
             IWebElement updatedProfileName = driver.FindElement(By.ClassName("title"));
             return updatedProfileName.Text;
         }
+
+        public void updateFirstNameOnly(IWebDriver driver, string firstN)
+        {
+            IWebElement title = driver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[1]/i"));
+            Thread.Sleep(2000);
+            title.Click();
+
+            IWebElement firstName = driver.FindElement(By.Name("firstName"));
+            firstName.Clear();
+            firstName.SendKeys(firstN);
+
+            Thread.Sleep(2000);
+            IWebElement lastName = driver.FindElement(By.Name("lastName"));
+            // lastName.Clear(); Bug
+            // Workaround
+            lastName.SendKeys(Keys.Backspace);
+            lastName.SendKeys(Keys.Backspace);
+            lastName.SendKeys(Keys.Backspace);
+            lastName.SendKeys(Keys.Backspace);
+            lastName.SendKeys(Keys.Backspace);
+            lastName.SendKeys(Keys.Backspace);
+            Thread.Sleep(2000);
+            IWebElement saveButton = driver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[2]/div/div[2]/button"));
+            saveButton.Click();
+        }
+
+        public string getFirstName(IWebDriver driver)
+        {
+            Thread.Sleep(1000);
+            IWebElement errorPopup = driver.FindElement(By.ClassName("ns-type-error"));
+            return errorPopup.Text;
+        }
+
         //public void addProfileDetails(IWebDriver driver)
         //{
         //    //Add availability

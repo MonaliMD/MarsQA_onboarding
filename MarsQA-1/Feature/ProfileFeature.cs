@@ -22,9 +22,9 @@ namespace MarsQA_1.Feature
         }
 
         [When(@"Seller enter '(.*)' and '(.*)'")]
-        public void WhenSellerEnterAnd(string p0, string p1)
+        public void WhenSellerEnterAnd(string firstN, string lastN)
         {
-            profileObj.updateName(driver ,p0, p1);
+            profileObj.updateName(driver , firstN, lastN);
         }
 
 
@@ -32,7 +32,26 @@ namespace MarsQA_1.Feature
         public void ThenNameSoldBeDisplayedAd(string p0)
         {
             string newProfileName = profileObj.getProfileName(driver);
-            Assert.That(newProfileName == "Ann Johns", "Login failed.");
+            Assert.That(newProfileName == "Ann Johns", "Profile name update faild.");
         }
+
+        //Test 02
+        [When(@"Seller enter First Name as ""(.*)"" and empty the last name feild")]
+        public void WhenSellerEnterFirstNameAsAndEmptyTheLastNameFeild(string firstN)
+        {
+            profileObj.updateFirstNameOnly(driver, firstN);
+        }
+
+       
+
+        [Then(@"Error pop up should be displayed as First name and last name are required")]
+        public void ThenErrorPopUpShouldBeDisplayedAsFirstNameAndLastNameAreRequired()
+        {
+            string newFirstName = profileObj.getFirstName(driver);
+            Assert.That(newFirstName == "First name and last name are required", "First name update test failed");
+        }
+
+
+
     }
 }

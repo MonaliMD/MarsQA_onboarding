@@ -11,12 +11,16 @@ Scenario: Test 01 Update my First Name and Last Name Successfully
 Examples: 
 	| First Name | Last Name |
 	| Ann | Johns |
-#@nameUpdate
-#Scenario: Test 02 Error should be pop up when frist name not entered
-#	Given I am in my Profile page
-#	When Seller enter First Name as "Ann" and empty the last name feild
-#	Then Error pop up should be displayed as "First name and last name are required"
-#
+
+@nameUpdate
+Scenario: Test 02 Error should be pop up when frist name not entered
+	Given I am in my Profile page
+	When Seller enter First Name as "Mark" and empty the last name feild
+	Then Error pop up should be displayed as First name and last name are required
+Examples: 
+	| First Name | 
+	| Mark | 
+
 #@nameUpdate
 #Scenario: Test 03 Error should be pop up when last name not entered
 #	Given I am in my Profile page
