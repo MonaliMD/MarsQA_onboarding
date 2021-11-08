@@ -1,15 +1,12 @@
-﻿
-using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using OpenQA.Selenium;
 using System.Threading;
+using org.openqa.selenium.support.ui.Select;
+using OpenQA.Selenium.Support.UI;
 
 namespace Specflow_task1.SpecflowPages.Pages
 {
     class Profile_page
-    {
-        
+    {  
         public void updateName(IWebDriver driver,string firstN, string lastN)
         {
             Thread.Sleep(2000);
@@ -69,6 +66,19 @@ namespace Specflow_task1.SpecflowPages.Pages
             return errorPopup.Text;
         }
 
+        public void addLanguage(IWebDriver driver, string language_1)
+        {
+            IWebElement addButton = driver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
+            addButton.Click();
+
+            IWebElement languaheTextBox = driver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[1]/input"));
+            languaheTextBox.SendKeys(language_1);
+
+            //SelectElement levelDropdown = new
+            
+
+
+        }
         //public void addProfileDetails(IWebDriver driver)
         //{
         //    //Add availability

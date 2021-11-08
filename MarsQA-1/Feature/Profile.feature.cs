@@ -76,12 +76,12 @@ namespace MarsQA_1.Feature
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Test 01 Update my First Name and Last Name Successfully")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
+        [NUnit.Framework.CategoryAttribute("mnameUpdate")]
         [NUnit.Framework.TestCaseAttribute("Ann", "Johns", null)]
         public virtual void Test01UpdateMyFirstNameAndLastNameSuccessfully(string firstName, string lastName, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "mytag"};
+                    "mnameUpdate"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));

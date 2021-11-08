@@ -2,8 +2,8 @@
 	As a seller I would like to add my all details in my profile 
 	So that others can my fully completed profile
 
-#Name update
-@mytag
+
+@mnameUpdate
 Scenario: Test 01 Update my First Name and Last Name Successfully
 	Given I am in my Profile page
 	When Seller enter '<First Name>' and '<Last Name>' 
@@ -82,9 +82,9 @@ Examples:
 #	Then Pop up massage displayed as "Availability updated"
 #
 # 
-#@Languages
-#Scenario: Test 05 Add language succcessfully
-#	Given I am in my Profile page
-#	And Seller select "Language" tab
-#	When Seller select "More than $1000 per month" as earn target
-#	Then Pop up massage displayed as "Availability updated"
+
+@Languages
+Scenario: Test 05 Add four languages succcessfully
+	Given I am in my Profile page
+	When Seller add language as "English" and choose level as fuent
+	Then Pop up massage displayed as English has been added to your languages

@@ -3,7 +3,6 @@ using TechTalk.SpecFlow;
 
 namespace MarsQA_1.Feature
 {
-    //SignIn signInObj = new SignIn();
     [Binding]
     class Login
     {

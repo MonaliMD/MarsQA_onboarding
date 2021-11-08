@@ -1,9 +1,7 @@
 ﻿using MarsQA_1.Helpers;
 using MarsQA_1.Pages;
 using NUnit.Framework;
-using OpenQA.Selenium.Chrome;
 using Specflow_task1.SpecflowPages.Pages;
-using System;
 using TechTalk.SpecFlow;
 
 namespace MarsQA_1.Feature
@@ -51,7 +49,19 @@ namespace MarsQA_1.Feature
             Assert.That(newFirstName == "First name and last name are required", "First name update test failed");
         }
 
+        //Add language
+        
+        [When(@"Seller add language as ""(.*)"" and choose level as fuent")]
+        public void WhenSellerAddLanguageAsAndChooseLevelAsFuent(string language_1)
+        {
+            ScenarioContext.Current.Pending();
+        }
 
+        [Then(@"Pop up massage displayed as English has been added to your languages")]
+        public void ThenPopUpMassageDisplayedAsEnglishHasBeenAddedToYourLanguages()
+        {
+            ScenarioContext.Current.Pending();
+        }
 
     }
 }
