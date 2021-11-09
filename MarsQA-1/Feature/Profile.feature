@@ -80,11 +80,84 @@ Examples:
 #	Given I am in my Profile page
 #	When Seller select "More than $1000 per month" as earn target
 #	Then Pop up massage displayed as "Availability updated"
-#
-# 
 
-@Languages
-Scenario: Test 05 Add four languages succcessfully
+ 
+
+@Languages @add
+Scenario: Test 12 Add a languages succcessfully
 	Given I am in my Profile page
-	When Seller add language as "English" and choose level as fuent
+	When Seller add language as "English" and choose level as fluent
 	Then Pop up massage displayed as English has been added to your languages
+
+#@Languages @add_same_language
+#Scenario: Test 13 Error message when add same languge agian
+#	Given I am in my Profile page
+#	When Seller add language as "English" and choose level as fluent
+#	Then Pop up massage displayed as Duplicated data
+
+#@Languages @Edit
+#Scenario: Test 14 Edit languages succcessfully
+#	Given I am in my Profile page
+#	When Seller edit his langauge as "Maori" intead of English
+#	Then Pop up massage displayed as Maori has been updated to your languages
+#
+#@Languages @Delete
+#Scenario: Test 15 Delete languages succcessfully
+#	Given I am in my Profile page
+#	When Seller delete his Maori language from the list
+#	Then Pop up massage displayed as Maori has been deleted from your languages
+#
+#@Skills @add
+#Scenario: Test 16 Add skills succcessfully
+#	Given I am in my Profile page
+#	When Seller click on skills tab
+#	And Seller add his skill as "Testing" 
+#	And Seller select level as intermediate
+#	Then Pop up massage displayed as Testing has been updated to your skills
+#
+#@Languages @add_same_language
+#Scenario: Test 17 Error message when add same skill agian
+#	Given I am in my Profile page
+#	When Seller click on skills tab
+#	And Seller add language as "Testing"
+#	And Seller choose level as intermediate
+#	Then Pop up massage displayed as This skill is already exist in your skill list.
+#
+#@Skills @edit
+#Scenario: Test 18 Edit skills succcessfully
+#	Given I am in my Profile page
+#	When Seller click on skills tab
+#	And Seller edit his skill as "Developmnet" instead of Testing 
+#	Then Pop up massage displayed as Development has been updated to your skills
+#
+#
+#@Skills @Delete
+#Scenario: Test 19 Edit skills succcessfully
+#	Given I am in my Profile page
+#	When Seller click on skills tab
+#	And Seller delete his skill Developmnet from the list
+#	Then Pop up massage displayed as Development has been deleted
+#
+#@Education @Add
+#Scenario: Test 20 Add education with all valid data
+#	Given I am in my Profile page
+#	When Seller click on education tab
+#	And Seller add his education university as "SLIIT"
+#	And Seller select country as Sri Lanka and title as Associate
+#	And Seller add degree as "Information Technology"
+#	And Seller select education year as 2016
+#	Then Pop up massage displayed as Education has been added
+#
+#@Education @Edit
+#Scenario: Test 20 Edit education data
+#	Given I am in my Profile page
+#	When Seller click on education tab
+#	And Seller edit his education university as "NIBM"
+#	Then Pop up massage displayed as Education as been updated
+#
+#@Education @Edit
+#Scenario: Test 20 delete education details
+#	Given I am in my Profile page
+#	When Seller click on education tab
+#	And Seller delete his education raw with university as NIBM
+#	Then Pop up massage displayed as Education entry successfully removed

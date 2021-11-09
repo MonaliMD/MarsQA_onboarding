@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using System.Threading;
-using org.openqa.selenium.support.ui.Select;
 using OpenQA.Selenium.Support.UI;
 
 namespace Specflow_task1.SpecflowPages.Pages
@@ -68,17 +67,33 @@ namespace Specflow_task1.SpecflowPages.Pages
 
         public void addLanguage(IWebDriver driver, string language_1)
         {
-            IWebElement addButton = driver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
-            addButton.Click();
+            IWebElement addNewButton = driver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
+            addNewButton.Click();
 
             IWebElement languaheTextBox = driver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[1]/input"));
             languaheTextBox.SendKeys(language_1);
 
-            //SelectElement levelDropdown = new
-            
+            // select the drop down list
+            var languageLevel = driver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select"));
+            //create select element object 
+            var selectElement = new SelectElement(languageLevel);
 
+            //select by value
+            selectElement.SelectByValue("Fluent");
+
+            IWebElement addButton = driver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
+            addButton.Click();
 
         }
+
+        //English has been added to your languages
+        public string getLanguageAddMessage(IWebDriver driver)
+        {
+            Thread.Sleep(1000);
+            IWebElement successPopup = driver.FindElement(By.ClassName("ns-type-success"));
+            return successPopup.Text;
+        }
+
         //public void addProfileDetails(IWebDriver driver)
         //{
         //    //Add availability

@@ -50,17 +50,20 @@ namespace MarsQA_1.Feature
         }
 
         //Add language
-        
-        [When(@"Seller add language as ""(.*)"" and choose level as fuent")]
-        public void WhenSellerAddLanguageAsAndChooseLevelAsFuent(string language_1)
+       
+        [When(@"Seller add language as ""(.*)"" and choose level as fluent")]
+        public void WhenSellerAddLanguageAsAndChooseLevelAsFluent(string language_1)
         {
-            ScenarioContext.Current.Pending();
+            profileObj.addLanguage(driver, language_1);
         }
+
+
 
         [Then(@"Pop up massage displayed as English has been added to your languages")]
         public void ThenPopUpMassageDisplayedAsEnglishHasBeenAddedToYourLanguages()
         {
-            ScenarioContext.Current.Pending();
+            string newSuccessMsg = profileObj.getLanguageAddMessage(driver);
+            Assert.That(newSuccessMsg == "English has been added to your languages", "Add language has been failed");
         }
 
     }
